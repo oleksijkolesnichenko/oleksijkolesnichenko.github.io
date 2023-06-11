@@ -57,6 +57,8 @@ function buildChart() {
                 yValues.push(x * x);
             }
             break;
+            case 'own':
+            window.alert("hey");
     }
 
     myChart = new Chart(ctx, {
