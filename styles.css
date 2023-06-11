@@ -1,0 +1,269 @@
+body {
+    background-color: lightgray;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.content {
+    max-width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    height: 76vh;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.chart-container {
+    height: 85%;
+}
+
+.controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+select,
+input[type="number"],
+
+input[type="color"] {
+    margin: 5px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+input[type="checkBox"],
+input[type="color"]{
+    padding: 2px;
+    cursor: pointer;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+}
+
+button:hover {
+    background-color: #555;
+    
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 5px;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+select:hover,
+select:focus {
+    background-color: #f2f2f2;
+}
+
+select:hover:after,
+select:focus:after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+select option {
+    background-color: white;
+    color: black;
+}
+
+/* Mobile devices */
+@media only screen and (max-width: 767px) {
+    .content {
+      max-width: 100%;
+      padding-bottom: 70px; 
+      box-sizing: border-box; 
+      overflow-y: auto; 
+    }
+    
+    .chart-container {
+      height: 50%;
+    }
+    
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    select,
+    input[type="number"],
+    input[type="color"],
+    button {
+      width: 100%;
+      margin: 5px 0;
+    }
+    
+    button {
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+    
+    select,
+    input[type="number"],
+    input[type="color"] {
+      box-sizing: border-box;
+    }
+    
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+
+  
+  
+  /* Tablets */
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .content {
+      max-width: 90%;
+    }
+    
+    .chart-container {
+      height: 70%;
+    }
+    
+    select,
+    input[type="number"],
+    input[type="color"],
+    button {
+      width: auto;
+      margin: 5px;
+    }
+    
+    button {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  
+  /* Common styles */
+  body {
+    background-color: lightgray;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+  
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .content {
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    height: 76vh;
+  }
+  
+  .footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .chart-container {
+    height: 85%;
+  }
+  
+  .controls {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  select,
+  input[type="number"],
+  input[type="color"] {
+    margin: 5px;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  input[type="checkBox"],
+  input[type="color"] {
+    padding: 2px;
+    cursor: pointer;
+  }
+  
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 5px;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  select:hover,
+  select:focus {
+    background-color: #f2f2f2;
+  }
+  
+  select:hover:after,
+  select:focus:after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  }
+  
+  select option {
+    background-color: white;
+    color: black;
+  }
