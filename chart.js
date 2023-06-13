@@ -8,6 +8,7 @@ var backgroundInput = document.getElementById('backgroundInput');
 // var legendCheckbox = document.getElementById('legendCheckbox');
 // var minYInput = document.getElementById('minYInput');
 // var maxYInput = document.getElementById('maxYInput');
+    var functionLabel = 'Графік функції';
 
 function buildChart() {
     var selectedFunction = document.getElementById('functionSelect').value;
@@ -16,9 +17,9 @@ function buildChart() {
     var showGrid = gridCheckbox.checked;
     var chartType = chartTypeSelect.value;
     var backgroundColor = backgroundInput.value;
-//  var showLegend = legendCheckbox.checked;
-//  var minY = parseFloat(minYInput.value);
-//  var maxY = parseFloat(maxYInput.value);
+    //  var showLegend = legendCheckbox.checked;
+    //  var minY = parseFloat(minYInput.value);
+    //  var maxY = parseFloat(maxYInput.value);
     var xValues = [];
     var yValues = [];
 
@@ -28,37 +29,59 @@ function buildChart() {
 
     switch (selectedFunction) {
         case 'sin':
+            functionLabel = 'Синус';
             for (var x = 0; x <= 2 * Math.PI; x += step) {
                 xValues.push(x);
                 yValues.push(Math.sin(x));
             }
             break;
         case 'cos':
+            functionLabel = 'Косинус';
             for (var x = 0; x <= 2 * Math.PI; x += step) {
                 xValues.push(x);
                 yValues.push(Math.cos(x));
             }
             break;
         case 'tan':
+            functionLabel = 'Тангенс';
             for (var x = -Math.PI / 2; x <= Math.PI / 2; x += step) {
                 xValues.push(x);
                 yValues.push(Math.tan(x));
             }
             break;
         case 'exp':
+            functionLabel = 'Експоненціальна функція';
             for (var x = -10; x <= 10; x += step) {
                 xValues.push(x);
                 yValues.push(Math.exp(x));
             }
             break;
         case 'quadratic':
+            functionLabel = 'Квадратична функція';
             for (var x = -10; x <= 10; x += step) {
                 xValues.push(x);
                 yValues.push(x * x);
             }
             break;
             case 'own':
-            window.alert("hey");
+                functionLabel = 'Ваша функція';
+                var ownFunctionInput = document.getElementById('ownFunctionInput').value;
+                var numPoints = Math.floor((2 * Math.PI) / step) + 1;
+            
+                for (var i = 0; i < numPoints; i++) {
+                    var x = i * step;
+                    xValues.push(x);
+            
+                    try {
+                        var y = eval(ownFunctionInput.replace('x', x));
+                        yValues.push(y);
+                    } catch (error) {
+                        window.alert('Error evaluating function:', error);
+                        break;
+                    }
+                }
+                break;
+            
     }
 
     myChart = new Chart(ctx, {
@@ -66,7 +89,7 @@ function buildChart() {
         data: {
             labels: xValues,
             datasets: [{
-                label: 'Графік функції',
+                label: functionLabel,
                 data: yValues,
                 borderColor: color,
                 borderWidth: 1
@@ -87,17 +110,17 @@ function buildChart() {
                     grid: {
                         display: showGrid
                     },
-//                  ticks: {
-//                      min: minY,
-//                      max: maxY
-//                  }
+                    //                  ticks: {
+                    //                      min: minY,
+                    //                      max: maxY
+                    //                  }
                 }
             },
-//          plugins: {
-//              legend: {
-//                  display: showLegend
-//              }
-//          },
+            //          plugins: {
+            //              legend: {
+            //                  display: showLegend
+            //              }
+            //          },
             backgroundColor: backgroundColor
         }
     });
@@ -115,3 +138,27 @@ document.getElementById('saveButton').addEventListener('click', function () {
     link.download = 'chart.png';
     link.click();
 });
+
+function openModal() {
+    var selectedFunction = document.getElementById('functionSelect').value;
+    if(selectedFunction==='own'){
+var modal = document.getElementById('modal');
+  modal.style.display = 'block';
+
+    }
+}  
+
+function closeModal() {
+    var modal = document.getElementById('modal');
+    modal.style.display = 'none';
+  }
+  
+  function confirmFunction() {
+    var ownFunctionInput = document.getElementById('ownFunctionInput');
+    var ownFunction = ownFunctionInput.value;
+
+    console.log('Введена функція:', ownFunction);
+    closeModal();
+    buildChart();
+  }
+  

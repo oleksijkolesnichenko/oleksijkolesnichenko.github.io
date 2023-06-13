@@ -23,7 +23,7 @@
         </div>
 
         <div class="controls">
-            <select id="functionSelect">
+            <select id="functionSelect" onchange="openModal()">
                 <option value="sin">sin(x)</option>
                 <option value="cos">cos(x)</option>
                 <option value="tan">tan(x)</option>
@@ -64,6 +64,16 @@
             <button id="saveButton">Зберегти як зображення</button>
         </div>
     </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <p class="modal-comment">Введіть свою функцію:</p>
+          <input id="ownFunctionInput" class="modal-input" type="text" placeholder="y=x*x...">
+          <button class="modal-button" onclick="confirmFunction()">Підтвердити</button>
+          <button class="modal-button" onclick="closeModal()">Закрити</button>
+        </div>
+      </div>      
 
     <footer class="footer">
         <p>© 2023 Графіки функцій</p>
