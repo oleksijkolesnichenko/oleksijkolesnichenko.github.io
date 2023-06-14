@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto Condensed', sans-serif;
+    overflow-x:hidden;
 }
 
 .header {
@@ -14,6 +15,10 @@ body {
 
 .content {
     max-width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    height: 76vh;
     margin: 0 auto;
     background-color: white;
     padding: 20px;
@@ -100,12 +105,17 @@ select option {
 }
 
 /* Mobile devices */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 800px) {
+    body{
+      overflow-x: hidden;
+    }  
+
     .content {
       max-width: 100%;
       padding-bottom: 70px; 
       box-sizing: border-box; 
       overflow-y: auto; 
+      padding-bottom: 50px;
     }
     
     .chart-container {
@@ -139,22 +149,24 @@ select option {
     }
     
     .footer {
-        position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
+        position: fixed;
       }
     }
 
-    @media only screen and (max-height: 800) {
+    @media only screen and (max-height: 800px) {
       .content {
         margin-bottom: 50px;
+        padding-bottom: 50px;
       }
     }
   /* Tablets */
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
     .content {
       max-width: 90%;
+      padding-bottom: 50px;
     }
     
     .chart-container {
@@ -181,6 +193,7 @@ select option {
     margin: 0;
     padding: 0;
     font-family: 'Roboto Condensed', sans-serif;
+    overflow-x: hidden;
   }
   
   .header {
@@ -190,12 +203,7 @@ select option {
     text-align: center;
   }
   
-  .content {
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    height: 76vh;
-  }
+
   
   .footer {
     background-color: #333;
@@ -317,4 +325,31 @@ select option {
     border-radius: 4px;
     border: 1px solid #ccc;
     box-sizing: border-box;
+  }
+
+.theme {
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 10px 20px;
+}
+
+  .darkmode-btn{
+    background-color: #999999;
+    color:white;
+    border: solid white 1px;
+  }
+
+  .darkmode-wrap{
+    background-color: #000;
+  }
+
+  .darkmode-container{
+    background-color: #4e4e4e;
+  }
+
+  .darkmode-body{
+    background-color: #222222;
+    color: white;
   }

@@ -5,6 +5,17 @@ var colorInput = document.getElementById('colorInput');
 var gridCheckbox = document.getElementById('gridCheckbox');
 var chartTypeSelect = document.getElementById('chartTypeSelect');
 var backgroundInput = document.getElementById('backgroundInput');
+
+const body = document.querySelector('body');
+const container = document.querySelector('.content');
+const header = document.querySelector('header');
+const footer = document.querySelector('footer');
+const options = document.querySelectorAll('option');
+const buttons = document.querySelectorAll('button');
+const selects = document.querySelectorAll('select');
+const inputs = document.querySelectorAll('input');
+const theme = document.querySelector('.theme');
+const modal = document.querySelector('.modal-content');
 // var legendCheckbox = document.getElementById('legendCheckbox');
 // var minYInput = document.getElementById('minYInput');
 // var maxYInput = document.getElementById('maxYInput');
@@ -161,4 +172,53 @@ function closeModal() {
     closeModal();
     buildChart();
   }
-  
+
+  var mode = "light";
+  function changeMode(){
+    if (mode==="light")
+    {
+        mode = "dark";
+        body.classList.add('darkmode-body')
+        container.classList.add('darkmode-container');
+        header.classList.add('darkmode-wrap');
+        footer.classList.add('darkmode-wrap');
+        buttons.forEach(button => {
+            button.classList.add('darkmode-btn');
+        });
+        options.forEach(option => {
+            option.classList.add('darkmode-btn');
+        });
+        selects.forEach(select => {
+            select.classList.add('darkmode-btn');
+        });
+        inputs.forEach(input => {
+            input.classList.add('darkmode-btn');
+        });
+        theme.classList.remove('darkmode-btn');
+        theme.textContent = 'Light mode';
+        modal.classList.add('darkmode-body');
+    } else if (mode === "dark")
+    {
+        mode = "light";
+        body.classList.remove('darkmode-body')
+        container.classList.remove('darkmode-container');
+        header.classList.remove('darkmode-wrap');
+        footer.classList.remove('darkmode-wrap');
+        buttons.forEach(button => {
+            button.classList.remove('darkmode-btn');
+        });
+        options.forEach(option => {
+            option.classList.remove('darkmode-btn');
+        });
+        selects.forEach(select => {
+            select.classList.remove('darkmode-btn');
+        });
+        inputs.forEach(input => {
+            input.classList.remove('darkmode-btn');
+        });
+        theme.classList.add('darkmode-btn');
+        theme.textContent = 'Dark mode';
+        modal.classList.remove('darkmode-body');
+
+    }
+  }
